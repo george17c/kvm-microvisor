@@ -3,3 +3,6 @@
 
 # executable
 vmm
+
+# debug history
+.gdb_history

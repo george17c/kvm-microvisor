@@ -1,8 +1,11 @@
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -O2 -Iinclude
+CFLAGS = -Wall -Werror -Wextra -Iinclude -g
+
+ARCH ?= $(shell uname -m)
 
 TARGET = vmm
-OBJS = src/vmm.o src/kvm.o src/mem.o
+SRCS = src/vmm.c src/mem.c src/kvm.c src/arch/$(ARCH)/vcpu.c src/arch/$(ARCH)/test.c
+OBJS = $(SRCS:.c=.o)
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^

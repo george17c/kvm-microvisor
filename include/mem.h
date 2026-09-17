@@ -1,10 +1,10 @@
 #ifndef __MEM_H__
 #define __MEM_H__
 
-#include <linux/types.h>
+#include <stdint.h>
 
 struct vm;
 
-void vm_set_memory_region(struct vm *vm, __u64 mem_sz, __u32 slot);
+void vm_set_memory_region(struct vm *vm, uint64_t mem_sz, uint64_t entry);
 
 #endif /* __MEM_H__ */
